@@ -63,7 +63,7 @@ fun HomeScreen(taskViewModel: TaskViewModel = viewModel()) {
                     if (newTitle.isNotBlank()) {
                         taskViewModel.addTask(
                             Task(
-                                id = tasks.size + 1,
+                                id = tasks.maxOf { it.id } + 1,
                                 title = newTitle,
                                 description = "",
                                 priority = 0,
@@ -90,25 +90,14 @@ fun HomeScreen(taskViewModel: TaskViewModel = viewModel()) {
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Row {
-                        Checkbox(
-                            checked = task.done,
-                            onCheckedChange = {
-                                taskViewModel.toggleDone(task.id)
-                            }
-                        )
+                        Checkbox(checked = task.done, onCheckedChange = { taskViewModel.toggleDone(task.id) })
 
                         Spacer(modifier = Modifier.width(8.dp))
 
                         Text(task.title)
                     }
 
-                    Button(
-                        onClick = {
-                            taskViewModel.removeTask(task.id)
-                        }
-                    ) {
-                        Text("Del")
-                    }
+                    Button(onClick = { taskViewModel.removeTask(task.id) }) { Text("Del") }
                 }
             }
         }
