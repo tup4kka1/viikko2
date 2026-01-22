@@ -1,4 +1,16 @@
 Pienimuotoinen task list.
 
-done napilla voi togglettaa tehtävän true/false ja muilla napeille suodattaa tuloksia
-New task kans tekee tyhjän taskin (lol)
+FEATURET:
+- Tasklist
+- Taskin lisäys
+- Taskien merkintä tehdyksi
+- Taskin poistaminen
+- Taskien suodatus (vain tehdyt)
+- Taskien sorttaus due daten mukaan
+  
+Rakenne
+- UI (Compose-näkymät)
+- ViewModel ()
+- Domain (data ja funktiot)
+
+Nyt käytetään ViewModelia rmemember tilalla, että se säilyttää sen tilan kokoajan toisin kuin remember häviää aina kun näkjynmä rakennetaan uuestaan.
